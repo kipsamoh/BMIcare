@@ -1,7 +1,8 @@
-from flask import request, render_template
-from app import app
+from flask import Blueprint, request, render_template
 
-@app.route('/calculate_bmi', methods=['POST'])
+bmi_calculator_blueprint = Blueprint('bmi_calculator', __name__)
+
+@bmi_calculator_blueprint.route('/calculate_bmi', methods=['POST'])
 def calculate_bmi():
     height = float(request.form['height'])
     weight = float(request.form['weight'])

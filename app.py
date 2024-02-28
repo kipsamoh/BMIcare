@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from bmi_calculator import calculate_bmi_value, get_bmi_category
 
 app = Flask(__name__)
 
@@ -7,6 +6,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+from bmi_calculator import bmi_calculator_blueprint
+app.register_blueprint(bmi_calculator_blueprint)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080)
 
