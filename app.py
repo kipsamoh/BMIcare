@@ -1,14 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from bmi_calculator import bmi_calculator_blueprint
 
 app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-from bmi_calculator import bmi_calculator_blueprint
 app.register_blueprint(bmi_calculator_blueprint)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+# Importing the necessary function from bmi_calculator module
+from bmi_calculator import calculate_bmi
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Result</title>
+</head>
+<body>
+    <h1>BMI Result</h1>
+    <p>Your BMI is: {{ bmi | round(1) }}</p>
+    {% if bmi < 18.5 %}
+        <p>You are underweight. You should consider gaining some weight.</p>
+    {% elif bmi >= 18.5 and bmi < 24.9 %}
+        <p>Your weight is normal. Keep up the good work!</p>
+    {% elif bmi >= 25 and bmi < 29.9 %}
+        <p>You are overweight. You should consider losing some weight.</p>
+    {% else %}
+        <p>You are obese. It's important to prioritize weight loss for your health.</p>
+    {% endif %}
+</body>
+</html>
