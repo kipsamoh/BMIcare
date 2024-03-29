@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Result</title>
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>BMI Result</h1>
-    <p>Your BMI is: {{ bmi | round(1) }}</p>
-    {% if bmi < 18.5 %}
-        <p>You are underweight. You should consider gaining some weight.</p>
-    {% elif bmi >= 18.5 and bmi < 24.9 %}
-        <p>Your weight is normal. Keep up the good work!</p>
-    {% elif bmi >= 25 and bmi < 29.9 %}
-        <p>You are overweight. You should consider losing some weight.</p>
-    {% else %}
-        <p>You are obese. It's important to prioritize weight loss for your health.</p>
-    {% endif %}
-    
+    <h1>BMI Calculator</h1>
     <form action="{{ url_for('bmi_calculator.calculate_bmi') }}" method="post">
-        <button type="submit">Calculate Again</button>
+        <label for="height">Height (cm):</label>
+        <input type="number" name="height" id="height" required>
+        <br>
+        <label for="weight">Weight (kg):</label>
+        <input type="number" name="weight" id="weight" required>
+        <br>
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" required>
+        <br>
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+        <button type="submit">Calculate BMI</button>
     </form>
 
     <footer>
         <p>&copy; 2024 BMI Calculator. All rights reserved.</p>
     </footer>
-</body>
-</html>
