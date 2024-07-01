@@ -5,7 +5,7 @@ bmi_calculator_blueprint = Blueprint('bmi_calculator', __name__)
 # Route for the BMI Calculator page
 @bmi_calculator_blueprint.route('/')
 def index():
-    return render_template('index.html,blog.html,about.html,contact.html')
+    return render_template('index.html')
 
 # Route to handle BMI calculation
 @bmi_calculator_blueprint.route('/calculate_bmi', methods=['POST'])
